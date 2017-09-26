@@ -637,6 +637,29 @@ definitions:
         format: "date-time"
       isbn:
         type: "string"
+  BookAndLoanViewModel:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      title:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      datePublished:
+        type: "string"
+        format: "date-time"
+      isbn:
+        type: "string"
+      dateLoaned:
+        type: "string"
+        format: "date-time"
+      dateReturned:
+        type: "string"
+        format: "date-time"
   BookAndUserLoanViewModel:
     type: "object"
     properties:
@@ -659,7 +682,7 @@ definitions:
       books: {
         type: "array",
         items: {
-          "$ref": "#/definitions/BookViewModel"
+          "$ref": "#/definitions/BookAndLoanViewModel"
         }
       }
   BookLoanViewModel:
