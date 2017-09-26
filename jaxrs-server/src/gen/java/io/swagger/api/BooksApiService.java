@@ -23,21 +23,21 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T12:51:20.012Z")
 public abstract class BooksApiService {
     public abstract Response addBook(AddBookViewModel body,SecurityContext securityContext) throws NotFoundException;
-    public abstract Response addReview(Long bookId,Long userId,AddBookReviewViewModel body,SecurityContext securityContext) throws NotFoundException;
-    public abstract Response deleteBook(Long bookId,SecurityContext securityContext) throws NotFoundException;
-    public abstract Response deleteBookReview(Long bookId,Long userId,SecurityContext securityContext) throws NotFoundException;
-    public abstract Response deleteLoan(Long bookId,Long userId,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response addReview(Integer bookId,Integer userId,AddBookReviewViewModel body,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response deleteBook(Integer bookId,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response deleteBookReview(Integer bookId,Integer userId,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response deleteLoan(Integer bookId,Integer userId,SecurityContext securityContext) throws NotFoundException;
     public abstract Response getAllBooks(SecurityContext securityContext) throws NotFoundException;
-    public abstract Response getBookById(Long bookId,SecurityContext securityContext) throws NotFoundException;
-    public abstract Response getBookLoanHistory(Long bookId,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response getBookById(Integer bookId,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response getBookLoanHistory(Integer bookId,SecurityContext securityContext) throws NotFoundException;
     public abstract Response getBookReviewsByBookId(BigDecimal bookId,SecurityContext securityContext) throws NotFoundException;
     public abstract Response getBooksByRating(SecurityContext securityContext) throws NotFoundException;
     public abstract Response getLoanedBooksByDate(Date date,SecurityContext securityContext) throws NotFoundException;
-    public abstract Response loanBook(Long bookId,Long userId,SecurityContext securityContext) throws NotFoundException;
-    public abstract Response returnBook(Long bookId,SecurityContext securityContext) throws NotFoundException;
-    public abstract Response updateBook(Long bookId,AddBookViewModel body,SecurityContext securityContext) throws NotFoundException;
-    public abstract Response updateBookLoan(Long bookId,Long userId,UpdateBookLoanViewModel body,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response loanBook(Integer bookId,Integer userId,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response returnBook(Integer bookId,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response updateBook(Integer bookId,AddBookViewModel body,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response updateBookLoan(Integer bookId,Integer userId,UpdateBookLoanViewModel body,SecurityContext securityContext) throws NotFoundException;
 }

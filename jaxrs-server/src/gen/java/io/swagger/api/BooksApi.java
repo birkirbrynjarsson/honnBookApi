@@ -36,7 +36,7 @@ import javax.validation.constraints.*;
 
 
 @io.swagger.annotations.Api(description = "the books API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T12:51:20.012Z")
 public class BooksApi  {
    private final BooksApiService delegate;
 
@@ -80,8 +80,8 @@ public class BooksApi  {
     @io.swagger.annotations.ApiOperation(value = "Add new or update book review", notes = "", response = void.class, tags={ "book reviews", })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 405, message = "Invalid input", response = void.class) })
-    public Response addReview(@ApiParam(value = "The ID of the book that the review belongs to",required=true) @PathParam("bookId") Long bookId
-,@ApiParam(value = "The ID of the user that the review belongs to",required=true) @PathParam("userId") Long userId
+    public Response addReview(@ApiParam(value = "The ID of the book that the review belongs to",required=true) @PathParam("bookId") Integer bookId
+,@ApiParam(value = "The ID of the user that the review belongs to",required=true) @PathParam("userId") Integer userId
 ,@ApiParam(value = "Review object, that needs to be added to book" ,required=true) AddBookReviewViewModel body
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
@@ -96,7 +96,7 @@ public class BooksApi  {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid book id supplied", response = void.class),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "Book not found", response = void.class) })
-    public Response deleteBook(@ApiParam(value = "The id of the book that needs to be deleted",required=true) @PathParam("bookId") Long bookId
+    public Response deleteBook(@ApiParam(value = "The id of the book that needs to be deleted",required=true) @PathParam("bookId") Integer bookId
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.deleteBook(bookId,securityContext);
@@ -110,8 +110,8 @@ public class BooksApi  {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid book id or user id supplied", response = void.class),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "Book not found or user not found", response = void.class) })
-    public Response deleteBookReview(@ApiParam(value = "The ID of the book that the review belongs to",required=true) @PathParam("bookId") Long bookId
-,@ApiParam(value = "The ID of the user that the review belongs to",required=true) @PathParam("userId") Long userId
+    public Response deleteBookReview(@ApiParam(value = "The ID of the book that the review belongs to",required=true) @PathParam("bookId") Integer bookId
+,@ApiParam(value = "The ID of the user that the review belongs to",required=true) @PathParam("userId") Integer userId
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.deleteBookReview(bookId,userId,securityContext);
@@ -125,8 +125,8 @@ public class BooksApi  {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid book id or user id supplied", response = void.class),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "Book not found or user not found", response = void.class) })
-    public Response deleteLoan(@ApiParam(value = "The ID of the book that needs to be loaned",required=true) @PathParam("bookId") Long bookId
-,@ApiParam(value = "The ID of the user that needs to loan the specifed book",required=true) @PathParam("userId") Long userId
+    public Response deleteLoan(@ApiParam(value = "The ID of the book that needs to be loaned",required=true) @PathParam("bookId") Integer bookId
+,@ApiParam(value = "The ID of the user that needs to loan the specifed book",required=true) @PathParam("userId") Integer userId
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.deleteLoan(bookId,userId,securityContext);
@@ -153,7 +153,7 @@ public class BooksApi  {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid book id supplied", response = BookViewModel.class),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "Book not found", response = BookViewModel.class) })
-    public Response getBookById(@ApiParam(value = "The ID of the book that needs to be fetched",required=true) @PathParam("bookId") Long bookId
+    public Response getBookById(@ApiParam(value = "The ID of the book that needs to be fetched",required=true) @PathParam("bookId") Integer bookId
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.getBookById(bookId,securityContext);
@@ -169,7 +169,7 @@ public class BooksApi  {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid book id supplied", response = BookLoanViewModel.class, responseContainer = "List"),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "Book not found", response = BookLoanViewModel.class, responseContainer = "List") })
-    public Response getBookLoanHistory(@ApiParam(value = "The ID of the book that needs to be fetched",required=true) @PathParam("bookId") Long bookId
+    public Response getBookLoanHistory(@ApiParam(value = "The ID of the book that needs to be fetched",required=true) @PathParam("bookId") Integer bookId
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.getBookLoanHistory(bookId,securityContext);
@@ -222,8 +222,8 @@ public class BooksApi  {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid id", response = void.class),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "book or user not found", response = void.class) })
-    public Response loanBook(@ApiParam(value = "The ID of the book that needs to be loaned",required=true) @PathParam("bookId") Long bookId
-,@ApiParam(value = "The ID of the user that needs to loan the specifed book",required=true) @PathParam("userId") Long userId
+    public Response loanBook(@ApiParam(value = "The ID of the book that needs to be loaned",required=true) @PathParam("bookId") Integer bookId
+,@ApiParam(value = "The ID of the user that needs to loan the specifed book",required=true) @PathParam("userId") Integer userId
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.loanBook(bookId,userId,securityContext);
@@ -237,7 +237,7 @@ public class BooksApi  {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Book is not being loaned or has already been returned", response = void.class),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "Book not found", response = void.class) })
-    public Response returnBook(@ApiParam(value = "The ID of the book that needs to be returned",required=true) @PathParam("bookId") Long bookId
+    public Response returnBook(@ApiParam(value = "The ID of the book that needs to be returned",required=true) @PathParam("bookId") Integer bookId
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.returnBook(bookId,securityContext);
@@ -251,7 +251,7 @@ public class BooksApi  {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid book supplied", response = void.class),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "Book not found", response = void.class) })
-    public Response updateBook(@ApiParam(value = "Id of the book that needs to be updated",required=true) @PathParam("bookId") Long bookId
+    public Response updateBook(@ApiParam(value = "Id of the book that needs to be updated",required=true) @PathParam("bookId") Integer bookId
 ,@ApiParam(value = "Updated book object" ,required=true) AddBookViewModel body
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
@@ -266,8 +266,8 @@ public class BooksApi  {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid id", response = void.class),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "book or user not found", response = void.class) })
-    public Response updateBookLoan(@ApiParam(value = "The ID of the book that needs to be updated",required=true) @PathParam("bookId") Long bookId
-,@ApiParam(value = "The ID of the user that's loan needs be updated",required=true) @PathParam("userId") Long userId
+    public Response updateBookLoan(@ApiParam(value = "The ID of the book that needs to be updated",required=true) @PathParam("bookId") Integer bookId
+,@ApiParam(value = "The ID of the user that's loan needs be updated",required=true) @PathParam("userId") Integer userId
 ,@ApiParam(value = "Date loaned and date returned values" ,required=true) UpdateBookLoanViewModel body
 ,@Context SecurityContext securityContext)
     throws NotFoundException {

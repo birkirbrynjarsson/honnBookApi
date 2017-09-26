@@ -33,7 +33,7 @@ import javax.validation.constraints.*;
 
 
 @io.swagger.annotations.Api(description = "the users API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T12:51:20.012Z")
 public class UsersApi  {
    private final UsersApiService delegate;
 
@@ -79,7 +79,7 @@ public class UsersApi  {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid user id supplied", response = void.class),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "User not found", response = void.class) })
-    public Response deleteUser(@ApiParam(value = "The Id of the user that needs to be deleted",required=true) @PathParam("userId") Long userId
+    public Response deleteUser(@ApiParam(value = "The Id of the user that needs to be deleted",required=true) @PathParam("userId") Integer userId
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.deleteUser(userId,securityContext);
@@ -134,7 +134,7 @@ public class UsersApi  {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid user id supplied", response = UserViewModel.class),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "User not found", response = UserViewModel.class) })
-    public Response getUserById(@ApiParam(value = "The ID of the user that needs to be fetched",required=true) @PathParam("userId") Long userId
+    public Response getUserById(@ApiParam(value = "The ID of the user that needs to be fetched",required=true) @PathParam("userId") Integer userId
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.getUserById(userId,securityContext);
@@ -164,7 +164,7 @@ public class UsersApi  {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid user supplied", response = void.class),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "User not found", response = void.class) })
-    public Response updateUser(@ApiParam(value = "Id of the user that needs to be updated",required=true) @PathParam("userId") Long userId
+    public Response updateUser(@ApiParam(value = "Id of the user that needs to be updated",required=true) @PathParam("userId") Integer userId
 ,@ApiParam(value = "Updated user object" ,required=true) AddUserViewModel body
 ,@Context SecurityContext securityContext)
     throws NotFoundException {

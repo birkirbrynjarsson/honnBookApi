@@ -24,7 +24,7 @@ import javax.validation.constraints.*;
 /**
  * BookAndBookReviewViewModel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T12:51:20.012Z")
 public class BookAndBookReviewViewModel   {
   @JsonProperty("book")
   private BookViewModel book = null;

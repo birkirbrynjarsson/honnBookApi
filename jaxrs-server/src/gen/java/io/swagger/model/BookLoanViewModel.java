@@ -26,7 +26,7 @@ import javax.validation.constraints.*;
  * User and dates when book was loaned and possibly returned
  */
 @ApiModel(description = "User and dates when book was loaned and possibly returned")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T12:51:20.012Z")
 public class BookLoanViewModel   {
   @JsonProperty("user")
   private UserViewModel user = null;

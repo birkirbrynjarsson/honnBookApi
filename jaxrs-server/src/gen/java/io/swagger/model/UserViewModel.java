@@ -23,10 +23,10 @@ import javax.validation.constraints.*;
 /**
  * UserViewModel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T12:51:20.012Z")
 public class UserViewModel   {
   @JsonProperty("id")
-  private Long id = null;
+  private Integer id = null;
 
   @JsonProperty("firstName")
   private String firstName = null;
@@ -43,7 +43,7 @@ public class UserViewModel   {
   @JsonProperty("phone")
   private String phone = null;
 
-  public UserViewModel id(Long id) {
+  public UserViewModel id(Integer id) {
     this.id = id;
     return this;
   }
@@ -54,11 +54,11 @@ public class UserViewModel   {
    **/
   @JsonProperty("id")
   @ApiModelProperty(value = "")
-  public Long getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

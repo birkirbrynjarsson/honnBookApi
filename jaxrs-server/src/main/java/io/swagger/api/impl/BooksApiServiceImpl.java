@@ -23,7 +23,7 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T12:51:20.012Z")
 public class BooksApiServiceImpl extends BooksApiService {
     @Override
     public Response addBook(AddBookViewModel body, SecurityContext securityContext) throws NotFoundException {
@@ -31,22 +31,22 @@ public class BooksApiServiceImpl extends BooksApiService {
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response addReview(Long bookId, Long userId, AddBookReviewViewModel body, SecurityContext securityContext) throws NotFoundException {
+    public Response addReview(Integer bookId, Integer userId, AddBookReviewViewModel body, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response deleteBook(Long bookId, SecurityContext securityContext) throws NotFoundException {
+    public Response deleteBook(Integer bookId, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response deleteBookReview(Long bookId, Long userId, SecurityContext securityContext) throws NotFoundException {
+    public Response deleteBookReview(Integer bookId, Integer userId, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response deleteLoan(Long bookId, Long userId, SecurityContext securityContext) throws NotFoundException {
+    public Response deleteLoan(Integer bookId, Integer userId, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
@@ -56,12 +56,12 @@ public class BooksApiServiceImpl extends BooksApiService {
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response getBookById(Long bookId, SecurityContext securityContext) throws NotFoundException {
+    public Response getBookById(Integer bookId, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response getBookLoanHistory(Long bookId, SecurityContext securityContext) throws NotFoundException {
+    public Response getBookLoanHistory(Integer bookId, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
@@ -81,22 +81,22 @@ public class BooksApiServiceImpl extends BooksApiService {
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response loanBook(Long bookId, Long userId, SecurityContext securityContext) throws NotFoundException {
+    public Response loanBook(Integer bookId, Integer userId, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response returnBook(Long bookId, SecurityContext securityContext) throws NotFoundException {
+    public Response returnBook(Integer bookId, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response updateBook(Long bookId, AddBookViewModel body, SecurityContext securityContext) throws NotFoundException {
+    public Response updateBook(Integer bookId, AddBookViewModel body, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response updateBookLoan(Long bookId, Long userId, UpdateBookLoanViewModel body, SecurityContext securityContext) throws NotFoundException {
+    public Response updateBookLoan(Integer bookId, Integer userId, UpdateBookLoanViewModel body, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }

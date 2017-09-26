@@ -24,10 +24,10 @@ import javax.validation.constraints.*;
 /**
  * BookAndLoanViewModel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T12:51:20.012Z")
 public class BookAndLoanViewModel   {
   @JsonProperty("id")
-  private Long id = null;
+  private Integer id = null;
 
   @JsonProperty("title")
   private String title = null;
@@ -50,7 +50,7 @@ public class BookAndLoanViewModel   {
   @JsonProperty("dateReturned")
   private Date dateReturned = null;
 
-  public BookAndLoanViewModel id(Long id) {
+  public BookAndLoanViewModel id(Integer id) {
     this.id = id;
     return this;
   }
@@ -61,11 +61,11 @@ public class BookAndLoanViewModel   {
    **/
   @JsonProperty("id")
   @ApiModelProperty(value = "")
-  public Long getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

@@ -20,7 +20,7 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T12:51:20.012Z")
 public class UsersApiServiceImpl extends UsersApiService {
     @Override
     public Response addUser(AddUserViewModel body, SecurityContext securityContext) throws NotFoundException {
@@ -28,7 +28,7 @@ public class UsersApiServiceImpl extends UsersApiService {
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response deleteUser(Long userId, SecurityContext securityContext) throws NotFoundException {
+    public Response deleteUser(Integer userId, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
@@ -48,7 +48,7 @@ public class UsersApiServiceImpl extends UsersApiService {
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response getUserById(Long userId, SecurityContext securityContext) throws NotFoundException {
+    public Response getUserById(Integer userId, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
@@ -58,7 +58,7 @@ public class UsersApiServiceImpl extends UsersApiService {
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response updateUser(Long userId, AddUserViewModel body, SecurityContext securityContext) throws NotFoundException {
+    public Response updateUser(Integer userId, AddUserViewModel body, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
