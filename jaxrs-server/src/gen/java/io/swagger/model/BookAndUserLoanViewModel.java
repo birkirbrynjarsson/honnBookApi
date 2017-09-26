@@ -18,26 +18,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.model.Book;
-import io.swagger.model.User;
+import io.swagger.model.BookViewModel;
+import io.swagger.model.UserViewModel;
 import java.util.Date;
 import javax.validation.constraints.*;
 
 /**
- * BookCurrentUser
+ * BookAndUserLoanViewModel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-25T22:03:01.666Z")
-public class BookCurrentUser   {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+public class BookAndUserLoanViewModel   {
   @JsonProperty("book")
-  private Book book = null;
+  private BookViewModel book = null;
 
   @JsonProperty("user")
-  private User user = null;
+  private UserViewModel user = null;
 
   @JsonProperty("dateLoaned")
   private Date dateLoaned = null;
 
-  public BookCurrentUser book(Book book) {
+  public BookAndUserLoanViewModel book(BookViewModel book) {
     this.book = book;
     return this;
   }
@@ -48,15 +48,15 @@ public class BookCurrentUser   {
    **/
   @JsonProperty("book")
   @ApiModelProperty(value = "")
-  public Book getBook() {
+  public BookViewModel getBook() {
     return book;
   }
 
-  public void setBook(Book book) {
+  public void setBook(BookViewModel book) {
     this.book = book;
   }
 
-  public BookCurrentUser user(User user) {
+  public BookAndUserLoanViewModel user(UserViewModel user) {
     this.user = user;
     return this;
   }
@@ -67,15 +67,15 @@ public class BookCurrentUser   {
    **/
   @JsonProperty("user")
   @ApiModelProperty(value = "")
-  public User getUser() {
+  public UserViewModel getUser() {
     return user;
   }
 
-  public void setUser(User user) {
+  public void setUser(UserViewModel user) {
     this.user = user;
   }
 
-  public BookCurrentUser dateLoaned(Date dateLoaned) {
+  public BookAndUserLoanViewModel dateLoaned(Date dateLoaned) {
     this.dateLoaned = dateLoaned;
     return this;
   }
@@ -103,10 +103,10 @@ public class BookCurrentUser   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BookCurrentUser bookCurrentUser = (BookCurrentUser) o;
-    return Objects.equals(this.book, bookCurrentUser.book) &&
-        Objects.equals(this.user, bookCurrentUser.user) &&
-        Objects.equals(this.dateLoaned, bookCurrentUser.dateLoaned);
+    BookAndUserLoanViewModel bookAndUserLoanViewModel = (BookAndUserLoanViewModel) o;
+    return Objects.equals(this.book, bookAndUserLoanViewModel.book) &&
+        Objects.equals(this.user, bookAndUserLoanViewModel.user) &&
+        Objects.equals(this.dateLoaned, bookAndUserLoanViewModel.dateLoaned);
   }
 
   @Override
@@ -118,7 +118,7 @@ public class BookCurrentUser   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BookCurrentUser {\n");
+    sb.append("class BookAndUserLoanViewModel {\n");
     
     sb.append("    book: ").append(toIndentedString(book)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");

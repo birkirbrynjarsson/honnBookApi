@@ -18,24 +18,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.model.User;
+import io.swagger.model.BookAndLoanViewModel;
+import io.swagger.model.UserViewModel;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 
 /**
- * BookReview
+ * User and list of books
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-25T22:03:01.666Z")
-public class BookReview   {
+@ApiModel(description = "User and list of books")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+public class UserAndBookLoansViewModel   {
   @JsonProperty("user")
-  private User user = null;
+  private UserViewModel user = null;
 
-  @JsonProperty("rating")
-  private Integer rating = null;
+  @JsonProperty("books")
+  private List<BookAndLoanViewModel> books = null;
 
-  @JsonProperty("review")
-  private String review = null;
-
-  public BookReview user(User user) {
+  public UserAndBookLoansViewModel user(UserViewModel user) {
     this.user = user;
     return this;
   }
@@ -46,50 +47,39 @@ public class BookReview   {
    **/
   @JsonProperty("user")
   @ApiModelProperty(value = "")
-  public User getUser() {
+  public UserViewModel getUser() {
     return user;
   }
 
-  public void setUser(User user) {
+  public void setUser(UserViewModel user) {
     this.user = user;
   }
 
-  public BookReview rating(Integer rating) {
-    this.rating = rating;
+  public UserAndBookLoansViewModel books(List<BookAndLoanViewModel> books) {
+    this.books = books;
+    return this;
+  }
+
+  public UserAndBookLoansViewModel addBooksItem(BookAndLoanViewModel booksItem) {
+    if (this.books == null) {
+      this.books = new ArrayList<BookAndLoanViewModel>();
+    }
+    this.books.add(booksItem);
     return this;
   }
 
   /**
-   * Get rating
-   * @return rating
+   * Get books
+   * @return books
    **/
-  @JsonProperty("rating")
+  @JsonProperty("books")
   @ApiModelProperty(value = "")
-  public Integer getRating() {
-    return rating;
+  public List<BookAndLoanViewModel> getBooks() {
+    return books;
   }
 
-  public void setRating(Integer rating) {
-    this.rating = rating;
-  }
-
-  public BookReview review(String review) {
-    this.review = review;
-    return this;
-  }
-
-  /**
-   * Get review
-   * @return review
-   **/
-  @JsonProperty("review")
-  @ApiModelProperty(value = "")
-  public String getReview() {
-    return review;
-  }
-
-  public void setReview(String review) {
-    this.review = review;
+  public void setBooks(List<BookAndLoanViewModel> books) {
+    this.books = books;
   }
 
 
@@ -101,26 +91,24 @@ public class BookReview   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BookReview bookReview = (BookReview) o;
-    return Objects.equals(this.user, bookReview.user) &&
-        Objects.equals(this.rating, bookReview.rating) &&
-        Objects.equals(this.review, bookReview.review);
+    UserAndBookLoansViewModel userAndBookLoansViewModel = (UserAndBookLoansViewModel) o;
+    return Objects.equals(this.user, userAndBookLoansViewModel.user) &&
+        Objects.equals(this.books, userAndBookLoansViewModel.books);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, rating, review);
+    return Objects.hash(user, books);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BookReview {\n");
+    sb.append("class UserAndBookLoansViewModel {\n");
     
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("    rating: ").append(toIndentedString(rating)).append("\n");
-    sb.append("    review: ").append(toIndentedString(review)).append("\n");
+    sb.append("    books: ").append(toIndentedString(books)).append("\n");
     sb.append("}");
     return sb.toString();
   }

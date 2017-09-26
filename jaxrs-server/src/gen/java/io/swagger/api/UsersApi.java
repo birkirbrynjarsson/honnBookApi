@@ -7,11 +7,12 @@ import io.swagger.api.factories.UsersApiServiceFactory;
 import io.swagger.annotations.ApiParam;
 import io.swagger.jaxrs.*;
 
+import io.swagger.model.AddUserViewModel;
 import java.math.BigDecimal;
+import io.swagger.model.BookAndBookReviewViewModel;
 import java.util.Date;
-import io.swagger.model.User;
-import io.swagger.model.UserCurrentBooks;
-import io.swagger.model.UserReview;
+import io.swagger.model.UserAndBookLoansViewModel;
+import io.swagger.model.UserViewModel;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -32,7 +33,7 @@ import javax.validation.constraints.*;
 
 
 @io.swagger.annotations.Api(description = "the users API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-25T22:03:01.666Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
 public class UsersApi  {
    private final UsersApiService delegate;
 
@@ -64,7 +65,7 @@ public class UsersApi  {
     @io.swagger.annotations.ApiOperation(value = "Add new user to the database", notes = "", response = void.class, tags={ "users", })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 405, message = "Invalid input", response = void.class) })
-    public Response addUser(@ApiParam(value = "User object, that needs to be added to the database" ,required=true) User body
+    public Response addUser(@ApiParam(value = "User object, that needs to be added to the database" ,required=true) AddUserViewModel body
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.addUser(body,securityContext);
@@ -87,9 +88,9 @@ public class UsersApi  {
     
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Gets all users", notes = "", response = User.class, responseContainer = "List", tags={ "users", })
+    @io.swagger.annotations.ApiOperation(value = "Gets all users", notes = "", response = UserViewModel.class, responseContainer = "List", tags={ "users", })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = User.class, responseContainer = "List") })
+        @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = UserViewModel.class, responseContainer = "List") })
     public Response getAllUsers(@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.getAllUsers(securityContext);
@@ -98,9 +99,9 @@ public class UsersApi  {
     @Path("/{userId}/reviews")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Gets all book reviews that belong to specific user", notes = "", response = UserReview.class, responseContainer = "List", tags={ "book reviews", })
+    @io.swagger.annotations.ApiOperation(value = "Gets all book reviews that belong to specific user", notes = "", response = BookAndBookReviewViewModel.class, responseContainer = "List", tags={ "book reviews", })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = UserReview.class, responseContainer = "List") })
+        @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = BookAndBookReviewViewModel.class, responseContainer = "List") })
     public Response getBookReviewsByUserId(@ApiParam(value = "The id of the user that the reviews belong to",required=true) @PathParam("userId") BigDecimal userId
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
@@ -110,13 +111,13 @@ public class UsersApi  {
     @Path("/loans/{date}")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Get list of users that have a borrowed book at specified date or today by default", notes = "", response = UserCurrentBooks.class, responseContainer = "List", tags={ "users", })
+    @io.swagger.annotations.ApiOperation(value = "Get list of users that have a borrowed book at specified date or today by default. Includes the list of books that the user has loaned.", notes = "", response = UserAndBookLoansViewModel.class, responseContainer = "List", tags={ "users","loans", })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = UserCurrentBooks.class, responseContainer = "List"),
+        @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = UserAndBookLoansViewModel.class, responseContainer = "List"),
         
-        @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid date supplied", response = UserCurrentBooks.class, responseContainer = "List"),
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid date supplied", response = UserAndBookLoansViewModel.class, responseContainer = "List"),
         
-        @io.swagger.annotations.ApiResponse(code = 404, message = "No users found", response = UserCurrentBooks.class, responseContainer = "List") })
+        @io.swagger.annotations.ApiResponse(code = 404, message = "No users found", response = UserAndBookLoansViewModel.class, responseContainer = "List") })
     public Response getUserAndLoanedBooksByDate(@ApiParam(value = "The date specified to look up users that have borrowed a book",required=true) @PathParam("date") Date date
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
@@ -126,13 +127,13 @@ public class UsersApi  {
     @Path("/{userId}")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Get user by user ID", notes = "", response = User.class, tags={ "users", })
+    @io.swagger.annotations.ApiOperation(value = "Get user by user ID", notes = "", response = UserViewModel.class, tags={ "users", })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = User.class),
+        @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = UserViewModel.class),
         
-        @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid user id supplied", response = User.class),
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid user id supplied", response = UserViewModel.class),
         
-        @io.swagger.annotations.ApiResponse(code = 404, message = "User not found", response = User.class) })
+        @io.swagger.annotations.ApiResponse(code = 404, message = "User not found", response = UserViewModel.class) })
     public Response getUserById(@ApiParam(value = "The ID of the user that needs to be fetched",required=true) @PathParam("userId") Long userId
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
@@ -142,13 +143,13 @@ public class UsersApi  {
     @Path("/loans/{date}/monthOverdue")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Get list of users that have a book borrowed for a month or more at given date, defaults to today", notes = "", response = User.class, responseContainer = "List", tags={ "users", })
+    @io.swagger.annotations.ApiOperation(value = "Get list of users that have a book borrowed for a month or more at given date, defaults to today", notes = "", response = UserViewModel.class, responseContainer = "List", tags={ "users","loans", })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = User.class, responseContainer = "List"),
+        @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = UserViewModel.class, responseContainer = "List"),
         
-        @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid date supplied", response = User.class, responseContainer = "List"),
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid date supplied", response = UserViewModel.class, responseContainer = "List"),
         
-        @io.swagger.annotations.ApiResponse(code = 404, message = "No users found", response = User.class, responseContainer = "List") })
+        @io.swagger.annotations.ApiResponse(code = 404, message = "No users found", response = UserViewModel.class, responseContainer = "List") })
     public Response getUsersWithMonthOverdueBooksByDate(@ApiParam(value = "The date specified to look up users that have borrowed a book",required=true) @PathParam("date") Date date
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
@@ -164,7 +165,7 @@ public class UsersApi  {
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "User not found", response = void.class) })
     public Response updateUser(@ApiParam(value = "Id of the user that needs to be updated",required=true) @PathParam("userId") Long userId
-,@ApiParam(value = "Updated user object" ,required=true) User body
+,@ApiParam(value = "Updated user object" ,required=true) AddUserViewModel body
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.updateUser(userId,body,securityContext);

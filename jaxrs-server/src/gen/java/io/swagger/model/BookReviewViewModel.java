@@ -18,16 +18,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.model.Book;
+import io.swagger.model.UserViewModel;
 import javax.validation.constraints.*;
 
 /**
- * UserReview
+ * BookReviewViewModel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-25T22:03:01.666Z")
-public class UserReview   {
-  @JsonProperty("book")
-  private Book book = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+public class BookReviewViewModel   {
+  @JsonProperty("user")
+  private UserViewModel user = null;
 
   @JsonProperty("rating")
   private Integer rating = null;
@@ -35,26 +35,26 @@ public class UserReview   {
   @JsonProperty("review")
   private String review = null;
 
-  public UserReview book(Book book) {
-    this.book = book;
+  public BookReviewViewModel user(UserViewModel user) {
+    this.user = user;
     return this;
   }
 
   /**
-   * Get book
-   * @return book
+   * Get user
+   * @return user
    **/
-  @JsonProperty("book")
+  @JsonProperty("user")
   @ApiModelProperty(value = "")
-  public Book getBook() {
-    return book;
+  public UserViewModel getUser() {
+    return user;
   }
 
-  public void setBook(Book book) {
-    this.book = book;
+  public void setUser(UserViewModel user) {
+    this.user = user;
   }
 
-  public UserReview rating(Integer rating) {
+  public BookReviewViewModel rating(Integer rating) {
     this.rating = rating;
     return this;
   }
@@ -73,7 +73,7 @@ public class UserReview   {
     this.rating = rating;
   }
 
-  public UserReview review(String review) {
+  public BookReviewViewModel review(String review) {
     this.review = review;
     return this;
   }
@@ -101,24 +101,24 @@ public class UserReview   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserReview userReview = (UserReview) o;
-    return Objects.equals(this.book, userReview.book) &&
-        Objects.equals(this.rating, userReview.rating) &&
-        Objects.equals(this.review, userReview.review);
+    BookReviewViewModel bookReviewViewModel = (BookReviewViewModel) o;
+    return Objects.equals(this.user, bookReviewViewModel.user) &&
+        Objects.equals(this.rating, bookReviewViewModel.rating) &&
+        Objects.equals(this.review, bookReviewViewModel.review);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(book, rating, review);
+    return Objects.hash(user, rating, review);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserReview {\n");
+    sb.append("class BookReviewViewModel {\n");
     
-    sb.append("    book: ").append(toIndentedString(book)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    rating: ").append(toIndentedString(rating)).append("\n");
     sb.append("    review: ").append(toIndentedString(review)).append("\n");
     sb.append("}");

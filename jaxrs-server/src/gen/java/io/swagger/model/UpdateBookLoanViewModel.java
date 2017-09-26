@@ -18,44 +18,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.model.User;
 import java.util.Date;
 import javax.validation.constraints.*;
 
 /**
- * BookLoanWithUser
+ * UpdateBookLoanViewModel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-25T22:03:01.666Z")
-public class BookLoanWithUser   {
-  @JsonProperty("user")
-  private User user = null;
-
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+public class UpdateBookLoanViewModel   {
   @JsonProperty("dateLoaned")
   private Date dateLoaned = null;
 
   @JsonProperty("dateReturned")
   private Date dateReturned = null;
 
-  public BookLoanWithUser user(User user) {
-    this.user = user;
-    return this;
-  }
-
-  /**
-   * Get user
-   * @return user
-   **/
-  @JsonProperty("user")
-  @ApiModelProperty(value = "")
-  public User getUser() {
-    return user;
-  }
-
-  public void setUser(User user) {
-    this.user = user;
-  }
-
-  public BookLoanWithUser dateLoaned(Date dateLoaned) {
+  public UpdateBookLoanViewModel dateLoaned(Date dateLoaned) {
     this.dateLoaned = dateLoaned;
     return this;
   }
@@ -74,7 +51,7 @@ public class BookLoanWithUser   {
     this.dateLoaned = dateLoaned;
   }
 
-  public BookLoanWithUser dateReturned(Date dateReturned) {
+  public UpdateBookLoanViewModel dateReturned(Date dateReturned) {
     this.dateReturned = dateReturned;
     return this;
   }
@@ -102,24 +79,22 @@ public class BookLoanWithUser   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BookLoanWithUser bookLoanWithUser = (BookLoanWithUser) o;
-    return Objects.equals(this.user, bookLoanWithUser.user) &&
-        Objects.equals(this.dateLoaned, bookLoanWithUser.dateLoaned) &&
-        Objects.equals(this.dateReturned, bookLoanWithUser.dateReturned);
+    UpdateBookLoanViewModel updateBookLoanViewModel = (UpdateBookLoanViewModel) o;
+    return Objects.equals(this.dateLoaned, updateBookLoanViewModel.dateLoaned) &&
+        Objects.equals(this.dateReturned, updateBookLoanViewModel.dateReturned);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, dateLoaned, dateReturned);
+    return Objects.hash(dateLoaned, dateReturned);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BookLoanWithUser {\n");
+    sb.append("class UpdateBookLoanViewModel {\n");
     
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    dateLoaned: ").append(toIndentedString(dateLoaned)).append("\n");
     sb.append("    dateReturned: ").append(toIndentedString(dateReturned)).append("\n");
     sb.append("}");

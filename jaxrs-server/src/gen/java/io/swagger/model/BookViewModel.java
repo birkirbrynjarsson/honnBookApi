@@ -22,10 +22,10 @@ import java.util.Date;
 import javax.validation.constraints.*;
 
 /**
- * Book
+ * BookViewModel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-25T22:03:01.666Z")
-public class Book   {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T11:45:59.080Z")
+public class BookViewModel   {
   @JsonProperty("id")
   private Long id = null;
 
@@ -44,7 +44,7 @@ public class Book   {
   @JsonProperty("isbn")
   private String isbn = null;
 
-  public Book id(Long id) {
+  public BookViewModel id(Long id) {
     this.id = id;
     return this;
   }
@@ -63,7 +63,7 @@ public class Book   {
     this.id = id;
   }
 
-  public Book title(String title) {
+  public BookViewModel title(String title) {
     this.title = title;
     return this;
   }
@@ -82,7 +82,7 @@ public class Book   {
     this.title = title;
   }
 
-  public Book firstName(String firstName) {
+  public BookViewModel firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -101,7 +101,7 @@ public class Book   {
     this.firstName = firstName;
   }
 
-  public Book lastName(String lastName) {
+  public BookViewModel lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -120,7 +120,7 @@ public class Book   {
     this.lastName = lastName;
   }
 
-  public Book datePublished(Date datePublished) {
+  public BookViewModel datePublished(Date datePublished) {
     this.datePublished = datePublished;
     return this;
   }
@@ -139,7 +139,7 @@ public class Book   {
     this.datePublished = datePublished;
   }
 
-  public Book isbn(String isbn) {
+  public BookViewModel isbn(String isbn) {
     this.isbn = isbn;
     return this;
   }
@@ -167,13 +167,13 @@ public class Book   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Book book = (Book) o;
-    return Objects.equals(this.id, book.id) &&
-        Objects.equals(this.title, book.title) &&
-        Objects.equals(this.firstName, book.firstName) &&
-        Objects.equals(this.lastName, book.lastName) &&
-        Objects.equals(this.datePublished, book.datePublished) &&
-        Objects.equals(this.isbn, book.isbn);
+    BookViewModel bookViewModel = (BookViewModel) o;
+    return Objects.equals(this.id, bookViewModel.id) &&
+        Objects.equals(this.title, bookViewModel.title) &&
+        Objects.equals(this.firstName, bookViewModel.firstName) &&
+        Objects.equals(this.lastName, bookViewModel.lastName) &&
+        Objects.equals(this.datePublished, bookViewModel.datePublished) &&
+        Objects.equals(this.isbn, bookViewModel.isbn);
   }
 
   @Override
@@ -185,7 +185,7 @@ public class Book   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Book {\n");
+    sb.append("class BookViewModel {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
