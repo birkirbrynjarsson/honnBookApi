@@ -39,7 +39,7 @@ paths:
         description: "User object, that needs to be added to the database"
         required: true
         schema:
-          $ref: "#/definitions/User"
+          $ref: "#/definitions/AddUserViewModel"
       responses:
         405:
           description: "Invalid input"
@@ -58,7 +58,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/User"
+              $ref: "#/definitions/UserViewModel"
   /users/{userId}:
     get:
       tags:
@@ -79,7 +79,7 @@ paths:
         200:
           description: "successful operation"
           schema:
-            $ref: "#/definitions/User"
+            $ref: "#/definitions/UserViewModel"
         400:
           description: "Invalid user id supplied"
         404:
@@ -104,7 +104,7 @@ paths:
         description: "Updated user object"
         required: true
         schema:
-          $ref: "#/definitions/User"
+          $ref: "#/definitions/AddUserViewModel"
       responses:
         400:
           description: "Invalid user supplied"
@@ -130,7 +130,7 @@ paths:
           description: "Invalid user id supplied"
         404:
           description: "User not found"
-
+          
   /books:
     post:
       tags:
@@ -148,7 +148,7 @@ paths:
         description: "Book object, that needs to be added to the database"
         required: true
         schema:
-          $ref: "#/definitions/Book"
+          $ref: "#/definitions/AddBookViewModel"
       responses:
         405:
           description: "Invalid input"
@@ -167,7 +167,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Book"
+              $ref: "#/definitions/BookViewModel"
   /books/{bookId}:
     get:
       tags:
@@ -188,7 +188,7 @@ paths:
         200:
           description: "successful operation"
           schema:
-            $ref: "#/definitions/Book"
+            $ref: "#/definitions/BookViewModel"
         400:
           description: "Invalid book id supplied"
         404:
@@ -213,7 +213,7 @@ paths:
         description: "Updated book object"
         required: true
         schema:
-          $ref: "#/definitions/Book"
+          $ref: "#/definitions/AddBookViewModel"
       responses:
         400:
           description: "Invalid book supplied"
@@ -263,13 +263,13 @@ paths:
   /books/{bookId}/loans:
     get:
       tags:
-      - "books"
+      - "loans"
       summary: "Get the loan history of the book, list of users"
       description: ""
       operationId: "getBookLoanHistory"
-      produces:
+      produces: 
       - "application/json"
-      parameters:
+      parameters: 
       - name: "bookId"
         in: "path"
         description: "The ID of the book that needs to be fetched"
@@ -282,7 +282,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/BookLoanWithUser"
+              $ref: "#/definitions/BookLoanViewModel"
         400:
           description: "Invalid book id supplied"
         404:
@@ -340,7 +340,7 @@ paths:
         description: "Date loaned and date returned values"
         required: true
         schema:
-          $ref: "#/definitions/BookLoan"
+          $ref: "#/definitions/UpdateBookLoanViewModel"
       responses:
         400:
           description: "Invalid id"
@@ -352,7 +352,7 @@ paths:
       summary: "Delete a loan that was registered. Should not be used to return books."
       description: ""
       operationId: "deleteLoan"
-      produces:
+      produces: 
       - "application/json"
       parameters:
       - name: "bookId"
@@ -376,7 +376,8 @@ paths:
     get:
       tags:
       - "books"
-      summary: "Get list of books that are loaned out/unavailable at specified date or today by default"
+      - "loans"
+      summary: "Get list of books that are loaned out/unavailable at specified date or today by default and the user that has loaned it"
       description: ""
       operationId: "getLoanedBooksByDate"
       produces:
@@ -394,7 +395,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/BookCurrentUser"
+              $ref: "#/definitions/BookAndUserLoanViewModel"
         400:
           description: "Invalid date supplied"
         404:
@@ -403,7 +404,8 @@ paths:
     get:
       tags:
       - "users"
-      summary: "Get list of users that have a borrowed book at specified date or today by default"
+      - "loans"
+      summary: "Get list of users that have a borrowed book at specified date or today by default. Includes the list of books that the user has loaned."
       description: ""
       operationId: "getUserAndLoanedBooksByDate"
       produces:
@@ -421,7 +423,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/UserCurrentBooks"
+              $ref: "#/definitions/UserAndBookLoansViewModel"
         400:
           description: "Invalid date supplied"
         404:
@@ -430,6 +432,7 @@ paths:
     get:
       tags:
       - "users"
+      - "loans"
       summary: "Get list of users that have a book borrowed for a month or more at given date, defaults to today"
       description: ""
       operationId: "getUsersWithMonthOverdueBooksByDate"
@@ -448,7 +451,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/User"
+              $ref: "#/definitions/UserViewModel"
         400:
           description: "Invalid date supplied"
         404:
@@ -474,7 +477,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/BookReview"
+              $ref: "#/definitions/BookReviewViewModel"
   /books/{bookId}/reviews/{userId}:
     post:
       tags:
@@ -504,7 +507,7 @@ paths:
         description: "Review object, that needs to be added to book"
         required: true
         schema:
-          $ref: "#/definitions/BookReview"
+          $ref: "#/definitions/AddBookReviewViewModel"
       responses:
         405:
           description: "Invalid input"
@@ -514,7 +517,7 @@ paths:
       summary: "Delete book review"
       description: ""
       operationId: "deleteBookReview"
-      produces:
+      produces: 
       - "application/json"
       parameters:
       - name: "bookId"
@@ -555,7 +558,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/UserReview"
+              $ref: "#/definitions/BookAndBookReviewViewModel"
   /books/recommendations:
     get:
       tags:
@@ -572,9 +575,22 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Book"
+              $ref: "#/definitions/BookViewModel"
 definitions:
-  User:
+  AddUserViewModel:
+    type: "object"
+    properties:
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      address:
+        type: "string"
+      email:
+        type: "string"
+      phone:
+        type: "string"
+  UserViewModel:
     type: "object"
     properties:
       id:
@@ -590,7 +606,21 @@ definitions:
         type: "string"
       phone:
         type: "string"
-  Book:
+  AddBookViewModel:
+    type: "object"
+    properties:
+      title:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      datePublished:
+        type: "string"
+        format: "date-time"
+      isbn:
+        type: "string"
+  BookViewModel:
     type: "object"
     properties:
       id:
@@ -607,35 +637,37 @@ definitions:
         format: "date-time"
       isbn:
         type: "string"
-  BookCurrentUser:
+  BookAndUserLoanViewModel:
     type: "object"
     properties:
       book: {
-        "$ref": "#/definitions/Book"
+        "$ref": "#/definitions/BookViewModel"
       }
       user: {
-        "$ref": "#/definitions/User"
+        "$ref": "#/definitions/UserViewModel"
       }
       dateLoaned:
         type: "string"
         format: "date-time"
-  UserCurrentBooks:
+  UserAndBookLoansViewModel:
     type: "object"
+    description: "User and list of books"
     properties:
       user: {
-        "$ref": "#/definitions/User"
+        "$ref": "#/definitions/UserViewModel"
       }
       books: {
         type: "array",
         items: {
-          "$ref": "#/definitions/Book"
+          "$ref": "#/definitions/BookViewModel"
         }
       }
-  BookLoanWithUser:
+  BookLoanViewModel:
     type: "object"
+    description: "User and dates when book was loaned and possibly returned"
     properties:
       user: {
-        "$ref": "#/definitions/User"
+        "$ref": "#/definitions/UserViewModel"
       }
       dateLoaned:
         type: "string"
@@ -643,34 +675,39 @@ definitions:
       dateReturned:
         type: "string"
         format: "date-time"
-  BookLoan:
+  UpdateBookLoanViewModel:
     type: "object"
     properties:
-      user: {
-        "$ref": "#/definitions/User"
-      }
       dateLoaned:
         type: "string"
         format: "date-time"
       dateReturned:
         type: "string"
         format: "date-time"
-  BookReview:
+  BookReviewViewModel:
     type: "object"
     properties:
       user: {
-        "$ref": "#/definitions/User"
+        "$ref": "#/definitions/UserViewModel"
       }
       rating:
         type: "integer"
         format: "int32"
       review:
         type: "string"
-  UserReview:
+  AddBookReviewViewModel:
+    type: "object"
+    properties:
+      rating:
+        type: "integer"
+        format: "int32"
+      review:
+        type: "string"
+  BookAndBookReviewViewModel:
     type: "object"
     properties:
       book: {
-        "$ref": "#/definitions/Book"
+        "$ref": "#/definitions/BookViewModel"
       }
       rating:
         type: "integer"
