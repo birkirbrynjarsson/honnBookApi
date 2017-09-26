@@ -3,6 +3,8 @@ package io.swagger.api;
 import io.swagger.api.*;
 import io.swagger.model.*;
 
+import is.ru.honn.service.BookService;
+import is.ru.honn.service.UserService;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 
 import io.swagger.model.AddBookReviewViewModel;

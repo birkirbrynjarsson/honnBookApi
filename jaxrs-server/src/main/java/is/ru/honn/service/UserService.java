@@ -14,8 +14,8 @@ public interface UserService
     void deleteUser(int userId);
     List<UserViewModel> getAllUsers();
     List<BookReviewViewModel> getBookReviewByUserId(int userId);
-    UserAndBookLoansViewModel getUserAndLoanedBooksByDate(Date date);
+    List<UserAndBookLoansViewModel> getUserAndLoanedBooksByDate(Date date);
     UserViewModel getUserById(int userId);
-    UserAndBookLoansViewModel getUsersWithMonthOverdueBooksByDate(Date date);
+    List<UserViewModel> getUsersWithMonthOverdueBooksByDate(Date date);
     void updateUser(int userId, AddUserViewModel body);
 }

@@ -7,20 +7,20 @@ import is.ru.honn.service.UserService;
 
 public class ServiceFactory
 {
-    private static UserService us;
-    private static BookService bs;
+    private static UserService userService;
+    private static BookService bookService;
 
     public static UserService getUserService()
     {
-        if(us == null)
-            us = new MemoryUserService();
-        return us;
+        if(userService == null)
+            userService = new MemoryUserService();
+        return userService;
     }
 
     public static BookService getBookService()
     {
-        if(bs == null)
-            bs = new MemoryBookService();
-        return bs;
+        if(bookService == null)
+            bookService = new MemoryBookService();
+        return bookService;
     }
 }

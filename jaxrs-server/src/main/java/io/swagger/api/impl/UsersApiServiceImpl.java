@@ -15,6 +15,8 @@ import io.swagger.api.NotFoundException;
 
 import java.io.InputStream;
 
+import is.ru.honn.service.BookService;
+import is.ru.honn.service.UserService;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 
 import javax.ws.rs.core.Response;
@@ -22,6 +24,15 @@ import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-09-26T12:51:20.012Z")
 public class UsersApiServiceImpl extends UsersApiService {
+
+    private static BookService bookService;
+    private static UserService userService;
+
+    public UsersApiServiceImpl(UserService userService, BookService bookService){
+        this.userService = userService;
+        this.bookService = bookService;
+    }
+
     @Override
     public Response addUser(AddUserViewModel body, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
