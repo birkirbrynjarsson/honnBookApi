@@ -130,7 +130,7 @@ paths:
           description: "Invalid user id supplied"
         404:
           description: "User not found"
-          
+
   /books:
     post:
       tags:
@@ -267,9 +267,9 @@ paths:
       summary: "Get the loan history of the book, list of users"
       description: ""
       operationId: "getBookLoanHistory"
-      produces: 
+      produces:
       - "application/json"
-      parameters: 
+      parameters:
       - name: "bookId"
         in: "path"
         description: "The ID of the book that needs to be fetched"
@@ -352,7 +352,7 @@ paths:
       summary: "Delete a loan that was registered. Should not be used to return books."
       description: ""
       operationId: "deleteLoan"
-      produces: 
+      produces:
       - "application/json"
       parameters:
       - name: "bookId"
@@ -470,7 +470,8 @@ paths:
         in: "path"
         description: "The id of the book that the reviews belong to"
         required: true
-        type: "number"
+        type: "integer"
+        format: "int32"
       responses:
         200:
           description: "successful operation"
@@ -517,7 +518,7 @@ paths:
       summary: "Delete book review"
       description: ""
       operationId: "deleteBookReview"
-      produces: 
+      produces:
       - "application/json"
       parameters:
       - name: "bookId"
@@ -551,7 +552,8 @@ paths:
         in: "path"
         description: "The id of the user that the reviews belong to"
         required: true
-        type: "number"
+        type: "integer"
+        format: "int32"
       responses:
         200:
           description: "successful operation"
