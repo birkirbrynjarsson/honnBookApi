@@ -19,5 +19,11 @@ You can then view the swagger listing here:
 http://localhost:8080/api/v1/swagger.json
 ```
 
+Swagger UI is available here:
+
+```
+http://localhost:8080/swagger-ui/
+```
+
 Note that if you have configured the `host` to be something other than localhost, the calls through
 swagger-ui will be directed to that host and not localhost!
